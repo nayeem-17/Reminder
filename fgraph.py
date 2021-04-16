@@ -1,13 +1,16 @@
 import os
 from facebook import GraphAPI
-from dotenv import load_dotenv
 
-load_dotenv()
+graph = GraphAPI(access_token=os.getenv('LONG_LIVED_ACCESS_TOKEN'))
+fields = ["feed.limit(10){permalink_url,full_picture}"]
+GROUP = os.getenv('GROUP_ID')
 
-graph = GraphAPI(access_token=os.getenv('ACCESS_TOKEN'))
-fields = ['first_name', 'id', 'name']
-print(os.getenv('ACCESS_TOKEN'))
 
-profile = graph.get_object('me', fields=fields)
+def get_feed():
+    feed = graph.get_object(GROUP, fields=fields)
+    return feed
 
-print(profile)
+
+def get_post(post_id):
+    post = graph.get_object(post_id)
+    return post
