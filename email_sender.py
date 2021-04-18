@@ -3,7 +3,7 @@ import ssl
 import os
 
 
-def email_sender(receiver_email, subject, message):
+def send_email(receiver_email, subject, message):
     smtp_server = "smtp.gmail.com"
     port = os.getenv('PORT')
     password = os.getenv('EMAIL_PASS')

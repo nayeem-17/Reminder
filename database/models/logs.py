@@ -6,5 +6,5 @@ import datetime
 class Logs(Document):
     time = DateTimeField(default=datetime.datetime.now())
     course_no = StringField()
-    post_id = IntField(unique=True, required=True)
+    post_id = StringField(unique=True, required=True)
     post = StringField()

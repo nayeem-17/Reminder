@@ -15,7 +15,9 @@ def create_connection():
 
 
 def post_exist(post_id):
-    data = Logs(post_id=post_id)
+    post_id = '519026101914218_1069166263566863'
+    data = Logs.objects(post_id=post_id)
+    print(data.to_json())
     if len(data) == 0:
         return False
     return True
